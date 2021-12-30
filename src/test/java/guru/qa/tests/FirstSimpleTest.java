@@ -2,7 +2,7 @@ package guru.qa;
 
 import org.junit.jupiter.api.*;
 
-@DisplayName("Это наш первый простой тест")
+@DisplayName("Р­С‚Рѕ РЅР°С€ РїРµСЂРІС‹Р№ РїСЂРѕСЃС‚РѕР№ С‚РµСЃС‚")
 public class FirstSimpleTest {
 
     @BeforeAll
@@ -25,17 +25,17 @@ public class FirstSimpleTest {
         System.out.println("@AfterAll method!");
     }
 
-    @DisplayName("Простой тест на assertEquals")
+    @DisplayName("РџСЂРѕСЃС‚РѕР№ С‚РµСЃС‚ РЅР° assertEquals")
     @Test
     void firstTest() {
-        System.out.println("Простой тест на assertEquals");
+        System.out.println("РџСЂРѕСЃС‚РѕР№ С‚РµСЃС‚ РЅР° assertEquals");
         Assertions.assertEquals(1,1);
     }
 
-    @DisplayName("Простой тест на assertTrue")
+    @DisplayName("РџСЂРѕСЃС‚РѕР№ С‚РµСЃС‚ РЅР° assertTrue")
     @Test
     void secondTest() {
-        System.out.println("Простой тест на assertTrue");
+        System.out.println("РџСЂРѕСЃС‚РѕР№ С‚РµСЃС‚ РЅР° assertTrue");
         Assertions.assertTrue(7 > 6);
     }
 
