@@ -21,6 +21,7 @@ public class StudentRegistrationForm {
     @Test
     void successTest() {
         open("/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
         //Act
         $("#firstName").setValue("Alex");
@@ -45,7 +46,7 @@ public class StudentRegistrationForm {
 
         $("#currentAddress").setValue("Some address");
 
-        $("#state").click();
+        $("#state").scrollTo().click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Karnal")).click();
@@ -56,6 +57,5 @@ public class StudentRegistrationForm {
         $(".modal-content").shouldBe(visible);
         $(".table-responsive").shouldHave(text("Alex"), text("Petrov"), text("email@email.com"), text("Male"), text("9009999099"),
                 text("30 April,1995"), text("English"), text("Reading"), text("1.png"), text("Some address"), text("Haryana"), text("Karnal"));
-//        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Alex Petrov"));
     }
 }
