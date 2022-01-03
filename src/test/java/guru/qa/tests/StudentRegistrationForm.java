@@ -56,5 +56,6 @@ public class StudentRegistrationForm {
         $(".modal-content").shouldBe(visible);
         $(".table-responsive").shouldHave(text("Alex"), text("Petrov"), text("email@email.com"), text("Male"), text("9009999099"),
                 text("30 April,1995"), text("English"), text("Reading"), text("1.png"), text("Some address"), text("Haryana"), text("Karnal"));
+//        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Alex Petrov"));
     }
 }
