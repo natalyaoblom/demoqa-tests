@@ -8,8 +8,19 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static guru.qa.utils.RandomUtils.getRandomEmail;
+import static guru.qa.utils.RandomUtils.getRandomString;
 
-public class StudentRegistrationFormWethTestBase extends TestBase {
+public class StudentRegistrationFormWithRandomUtils {
+
+    String firstName = getRandomString(12);
+    String userEmail = getRandomEmail();
+
+    @BeforeAll
+    static void setUp(){
+        Configuration.baseUrl = "https://demoqa.com";
+//        Configuration.browserSize = "1920*1080";
+    }
 
     @Test
     void successTest() {
@@ -17,9 +28,9 @@ public class StudentRegistrationFormWethTestBase extends TestBase {
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
         //Act
-        $("#firstName").setValue("Alex");
+        $("#firstName").setValue(firstName);
         $("#lastName").setValue("Petrov");
-        $("#userEmail").setValue("email@email.com");
+        $("#userEmail").setValue(userEmail);
 
         $("#genterWrapper").$(byText("Male")).click();
 
@@ -48,7 +59,9 @@ public class StudentRegistrationFormWethTestBase extends TestBase {
 
         //Assert
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Alex"), text("Petrov"), text("email@email.com"), text("Male"), text("9009999099"),
-                text("30 April,1995"), text("English"), text("Reading"), text("1.png"), text("Some address"), text("Haryana"), text("Karnal"));
+        $(".table-responsive").$(byText("Student Name"))
+                .parent().shouldHave(text(firstName + " Petrov"));
+        $(".table-responsive").$(byText("Student Email"))
+                .parent().shouldHave(text(userEmail));
     }
 }

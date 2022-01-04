@@ -1,22 +1,15 @@
 package guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
 
-import java.io.File;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
-public class StudentRegistrationForm {
-    @BeforeAll
-    static void setUp(){
-        Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.browserSize = "1920*1080";
-    }
+public class StudentRegistrationFormWithTestBase extends TestBase {
 
     @Test
     void successTest() {
@@ -55,7 +48,7 @@ public class StudentRegistrationForm {
 
         //Assert
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").$(byText("Student Name"))
-                .parent().shouldHave(text("Alex Petrov"));
+        $(".table-responsive").shouldHave(text("Alex"), text("Petrov"), text("email@email.com"), text("Male"), text("9009999099"),
+                text("30 April,1995"), text("English"), text("Reading"), text("1.png"), text("Some address"), text("Haryana"), text("Karnal"));
     }
 }
