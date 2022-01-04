@@ -71,6 +71,7 @@ public class StudentRegistrationFormWithComments {
 
         //Assert
         $(".modal-content").shouldBe(visible);
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text("Alex"), text("Petrov"), text("email@email.com"), text("Male"), text("9009999099"),
                 text("30 April,1995"), text("English"), text("Reading"), text("1.png"), text("Some address"), text("Haryana"), text("Karnal"));
 //        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Alex Petrov"));

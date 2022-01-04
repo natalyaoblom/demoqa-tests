@@ -1,32 +1,37 @@
 package guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
 
-import java.io.File;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static guru.qa.tests.TestData.userEmail;
 
-public class StudentRegistrationForm {
+public class StudentRegistrationFormWithTestData {
+
+    String firstName = "Alex",
+            lastName = "Petrov";
+
     @BeforeAll
-    static void setUp(){
+    static void setUp()  {
         Configuration.baseUrl = "https://demoqa.com";
 //        Configuration.browserSize = "1920*1080";
     }
 
     @Test
     void successTest() {
+
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
         //Act
-        $("#firstName").setValue("Alex");
-        $("#lastName").setValue("Petrov");
-        $("#userEmail").setValue("email@email.com");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(userEmail);
 
         $("#genterWrapper").$(byText("Male")).click();
 
@@ -54,8 +59,8 @@ public class StudentRegistrationForm {
         $("#submit").click();
 
         //Assert
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Alex"), text("Petrov"), text("email@email.com"), text("Male"), text("9009999099"),
-                text("30 April,1995"), text("English"), text("Reading"), text("1.png"), text("Some address"), text("Haryana"), text("Karnal"));
+        $(".modal-content").shouldBe(visible);
+        $(".table-responsive").$(byText("Student Name"))
+                .parent().shouldHave(text(firstName + " " + lastName));
     }
 }

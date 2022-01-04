@@ -97,7 +97,7 @@ public class StudentRegistrationFormWithPageObjects {
         $("#submit").click();
 
         //Assert
-        $(".modal-content").shouldBe(visible);
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         registrationPage.checkResultsValue("Student Name", "Alex Petrov")
                 .checkResultsValue("Student Email", "email@email.com")
                 .checkResultsValue("Gender", "Male")
