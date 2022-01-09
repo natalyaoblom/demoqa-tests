@@ -10,10 +10,10 @@ public class CalendarComponent {
         $(".react-datepicker__month-select").selectOption(month);
         $(".react-datepicker__year-select").selectOption(year);
 
-//        $(".react-datepicker__day--0" + day +
-//                ":not(.react-datepicker__day--outside-month)").click();
-        String dayLocator = format(".react-datepicker__day--0%s:not(.react-datepicker__day--outside-month)", day);
-        $(dayLocator).click();
+        $(".react-datepicker__day--0" + day +
+                ":not(.react-datepicker__day--outside-month)").click();
+//        String dayLocator = format(".react-datepicker__day--0%s:not(.react-datepicker__day--outside-month)", day);
+//        $(dayLocator).click();
 
 //        $("[aria-label$=' " month + " " + date + "th, " + year + "']").click();
 //        String dayLocator = format("[aria-label$=%s %th, %s]", month, day, year); Не подходит всем числам! 1,2,3...

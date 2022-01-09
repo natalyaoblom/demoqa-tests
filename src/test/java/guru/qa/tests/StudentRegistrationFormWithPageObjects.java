@@ -68,7 +68,7 @@ public class StudentRegistrationFormWithPageObjects {
     }
 
     @Test
-    void fillFornWithDslTest() {
+    void fillFormWithDslTest() {
         registrationPage.openPage()
                 .typeFirstName("Alex")
                 .typeLastName("Petrov");
