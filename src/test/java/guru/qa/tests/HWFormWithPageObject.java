@@ -19,31 +19,30 @@ public class HWFormWithPageObject {
     void fillFormTest() {
         registrationPage.openPage();
 
-        registrationPage.typeFirstName("Alex");
-        registrationPage.typeLastName("Petrov");
-        registrationPage.typeUserEmail("test@gmail.com");
-        registrationPage.selectGenterWrapper("Male");
-        registrationPage.typeUserNumber("9009999099");
-        registrationPage.setBirthDate("30", "May", "2000");
-        registrationPage.typeSubjectsInput("English");
-        registrationPage.selectHobbie("Reading");
-        registrationPage.uploadPicture("images/1.png");
-        registrationPage.typeCurrentAddress("Some address");
-        registrationPage.selectState("Haryana");
-        registrationPage.selectCity("Karnal");
-        registrationPage.submit();
+        registrationPage.typeFirstName("Alex")
+                .typeLastName("Petrov")
+                .typeUserEmail("test@gmail.com")
+                .selectGenterWrapper("Male")
+                .typeUserNumber("9009999099")
+                .setBirthDate("30", "May", "2000")
+                .typeSubjectsInput("English")
+                .selectHobbie("Reading")
+                .uploadPicture("images/1.png")
+                .typeCurrentAddress("Some address")
+                .selectState("Haryana")
+                .selectCity("Karnal")
+                .submit();
 
-        registrationPage.checkResultsHeader("Thanks for submitting the form");
-        registrationPage.checkResultsValue("Student Name", "Alex Petrov");
-        registrationPage.checkResultsValue("Student Email", "test@gmail.com");
-        registrationPage.checkResultsValue("Gender", "Male");
-        registrationPage.checkResultsValue("Mobile", "9009999099");
-        registrationPage.checkResultsValue("Date of Birth", "30 May,2000");
-        registrationPage.checkResultsValue("Subjects", "English");
-        registrationPage.checkResultsValue("Hobbies", "Reading");
-        registrationPage.checkResultsValue("Picture", "1.png");
-        registrationPage.checkResultsValue("Address", "Some address");
-        registrationPage.checkResultsValue("State and City", "Haryana Karnal");
-
+        registrationPage.checkResultsHeader("Thanks for submitting the form")
+                .checkResultsValue("Student Name", "Alex Petrov")
+                .checkResultsValue("Student Email", "test@gmail.com")
+                .checkResultsValue("Gender", "Male")
+                .checkResultsValue("Mobile", "9009999099")
+                .checkResultsValue("Date of Birth", "30 May,2000")
+                .checkResultsValue("Subjects", "English")
+                .checkResultsValue("Hobbies", "Reading")
+                .checkResultsValue("Picture", "1.png")
+                .checkResultsValue("Address", "Some address")
+                .checkResultsValue("State and City", "Haryana Karnal");
     }
 }
